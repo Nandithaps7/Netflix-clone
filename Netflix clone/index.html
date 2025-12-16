@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Netflix Clone – Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="nav-left">
+      <div class="logo">NETFLIX</div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="tvshows.html">TV Shows</a></li>
+        <li><a href="movies.html">Movies</a></li>
+        <li><a href="new-popular.html">New & Popular</a></li>
+        <li><a href="mylist.html">My List</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <button class="icon-btn">
+        <img src="images/search-icon.png" alt="Search" class="icon-img">
+      </button>
+      <button class="icon-btn">
+        <img src="images/bell-icon.png" alt="Notifications" class="icon-img">
+      </button>
+      <img src="images/profile.jpg" alt="Profile" class="profile-img">
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Stranger Things</h1>
+        <p class="hero-description">
+          When a young boy disappears, a small town uncovers a mystery involving secret experiments and supernatural forces.
+        </p>
+        <div class="hero-buttons">
+          <button class="btn btn-play">▶ Play</button>
+          <button class="btn btn-more">ℹ More Info</button>
+        </div>
+        <div class="hero-meta">
+          <span class="badge">#2 in TV Shows Today</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOVIE ROWS -->
+    <section class="rows">
+
+      <!-- Trending Now with slider arrows -->
+      <div class="row">
+        <h2>Trending Now</h2>
+        <div class="row-wrapper">
+          <button class="row-arrow left" onclick="scrollRow('trending-row', -1)">‹</button>
+
+          <div class="row-posters" id="trending-row">
+            <img src="images/movie1.jpg" class="poster" alt="Movie 1">
+            <img src="images/movie2.jpg" class="poster" alt="Movie 2">
+            <img src="images/movie3.jpg" class="poster" alt="Movie 3">
+            <img src="images/movie4.jpg" class="poster" alt="Movie 4">
+            <img src="images/movie5.jpg" class="poster" alt="Movie 5">
+            <img src="images/movie6.jpg" class="poster" alt="Movie 6">
+            <img src="images/movie7.jpg" class="poster" alt="Movie 7">
+            <img src="images/movie8.jpg" class="poster" alt="Movie 8">
+            <img src="images/movie9.jpg" class="poster" alt="Movie 9">
+            <img src="images/movie10.jpg" class="poster" alt="Movie 10">
+          </div>
+
+          <button class="row-arrow right" onclick="scrollRow('trending-row', 1)">›</button>
+        </div>
+      </div>
+
+      <!-- Top Rated (normal scroll, no arrows for now) -->
+      <div class="row">
+        <h2>Top Rated</h2>
+        <div class="row-posters">
+          <img src="images/movie6.jpg" class="poster" alt="Movie 6">
+          <img src="images/movie7.jpg" class="poster" alt="Movie 7">
+          <img src="images/movie8.jpg" class="poster" alt="Movie 8">
+          <img src="images/movie9.jpg" class="poster" alt="Movie 9">
+          <img src="images/movie10.jpg" class="poster" alt="Movie 10">
+          <img src="images/movie11.jpg" class="poster" alt="Movie 11">
+          <img src="images/movie12.jpg" class="poster" alt="Movie 12">
+        </div>
+      </div>
+
+      <!-- Continue Watching -->
+      <div class="row">
+        <h2>Continue Watching for You</h2>
+        <div class="row-posters">
+          <img src="images/movie3.jpg" class="poster" alt="Movie 3">
+          <img src="images/movie1.jpg" class="poster" alt="Movie 1">
+          <img src="images/movie8.jpg" class="poster" alt="Movie 8">
+          <img src="images/movie4.jpg" class="poster" alt="Movie 4">
+          <img src="images/movie6.jpg" class="poster" alt="Movie 6">
+          <img src="images/movie13.jpg" class="poster" alt="Movie 13">
+          <img src="images/movie15.jpg" class="poster" alt="Movie 15">
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="#">Audio and Subtitles</a>
+      <a href="#">Help Center</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Privacy</a>
+      <a href="#">Contact Us</a>
+    </div>
+    <p class="footer-copy">Netflix Clone UI • For practice only</p>
+  </footer>
+
+  <!-- SIMPLE JS FOR ROW SLIDER -->
+  <script>
+    function scrollRow(id, direction) {
+      const row = document.getElementById(id);
+      if (!row) return;
+      const amount = 300 * direction; // pixels to scroll each click
+      row.scrollBy({ left: amount, behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>

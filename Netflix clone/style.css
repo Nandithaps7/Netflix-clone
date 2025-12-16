@@ -1,0 +1,419 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #141414;
+  color: #fff;
+}
+
+/* NAVBAR */
+
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  padding: 0 4%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0));
+  z-index: 10;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #e50914;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #e5e5e5;
+  font-size: 0.9rem;
+}
+
+.nav-links a:hover {
+  color: #fff;
+}
+
+.nav-links a.active {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Right side icons and profile */
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Small round icon buttons */
+.icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.icon-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Icon image inside the button */
+.icon-img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+/* Curved-square profile picture */
+.profile-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px; /* curved square */
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* MAIN LAYOUT */
+
+main {
+  margin-top: 70px; /* equal to navbar height */
+}
+
+/* HERO SECTION (HOME PAGE) */
+
+.hero {
+  position: relative;
+  height: 80vh;
+  background-image: url("images/hero-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #141414 10%, transparent 60%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 40%;
+  padding-left: 4%;
+  padding-top: 15%;
+}
+
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-description {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  border: none;
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-play {
+  background-color: #fff;
+  color: #000;
+  font-weight: 600;
+}
+
+.btn-more {
+  background-color: rgba(109, 109, 110, 0.7);
+  color: #fff;
+  font-weight: 600;
+}
+
+.btn-play:hover {
+  background-color: #e6e6e6;
+}
+
+.btn-more:hover {
+  background-color: rgba(109, 109, 110, 0.4);
+}
+
+.hero-meta .badge {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.2rem 0.6rem;
+  border-left: 3px solid #e50914;
+  font-size: 0.9rem;
+}
+
+/* MOVIE ROWS (HOME PAGE) */
+
+.rows {
+  margin-top: -80px; /* pull rows slightly up, like Netflix */
+  padding-top: 40px;
+  background: linear-gradient(to top, #141414, transparent);
+}
+
+.row {
+  margin-top: 2.1rem;
+}
+
+.row h2 {
+  margin-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* Wrapper so arrows sit on sides of the row */
+.row-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Arrows */
+.row-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  width: 32px;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.row-arrow.left {
+  left: 0;
+}
+
+.row-arrow.right {
+  right: 0;
+}
+
+.row-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Scrollable posters row */
+.row-posters {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0 2.5rem 1rem; /* space for arrows on sides */
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.row-posters::-webkit-scrollbar {
+  display: none;
+}
+
+.poster {
+  max-height: 180px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  object-fit: cover;
+}
+
+.poster:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+
+/* FOOTER */
+
+.footer {
+  padding: 2rem 4%;
+  color: #757575;
+  font-size: 0.8rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  margin-bottom: 1rem;
+}
+
+.footer-links a {
+  color: #757575;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+}
+
+/* SUBPAGES: PAGE HERO (top heading area) */
+
+.page-hero {
+  padding: 100px 4% 20px; /* top padding accounts for navbar */
+}
+
+.page-hero h1 {
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+}
+
+.page-hero p {
+  font-size: 0.95rem;
+  color: #e5e5e5;
+}
+
+/* SUBPAGE HERO SECTIONS (TV, Movies, New & Popular) */
+
+.sub-hero {
+  position: relative;
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+
+.sub-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #141414 10%, transparent 60%);
+}
+
+.sub-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 40%;
+  padding-left: 4%;
+  padding-top: 14%;
+}
+
+.sub-hero-content h1 {
+  font-size: 2.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.sub-hero-content p {
+  font-size: 0.95rem;
+  color: #e5e5e5;
+}
+
+/* Specific backgrounds for each page */
+.tv-hero {
+  background-image: url("images/hero-tv.jpg");
+}
+
+.movies-hero {
+  background-image: url("images/hero-movies.jpg");
+}
+
+/* Optional, if you ever use New & Popular again */
+.new-hero {
+  background-image: url("images/hero-new.jpg");
+}
+
+
+/* GRID SECTIONS (TV, Movies, New & Popular, My List) */
+
+.grid-section {
+  padding: 10px 4% 30px;
+}
+
+.grid-section h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Responsive poster grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  height: 210px;
+  border-radius: 4px;
+  object-fit: cover;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+.card-title {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+}
+
+/* SIMPLE RESPONSIVE TWEAKS */
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* hide nav links on small screens for now */
+  }
+
+  .hero-content {
+    max-width: 80%;
+    padding-top: 35%;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .poster {
+    max-height: 140px;
+  }
+}
